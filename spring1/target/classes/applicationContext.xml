@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- this bean tag says register 'Programmer' class object as bean  -->
+    <bean id="programmerLaptop" class="springproject.Programmer" scope="singleton">
+         <!-- This property injects the Laptop bean into the Programmer bean -->
+      <property name="computer" ref="lap"/>
+
+        <!-- NOTE: you can't inject multiple bean into single property -->
+       <!-- <property name="computer" ref="desktp"/> -->
+  
+      <!-- Using constructor injection to inject the Laptop bean
+      <constructor-arg ref="lap"/>
+      -->
+    </bean>
+
+<bean id="programmerDesktop" class="springproject.Programmer">
+    <!-- This property injects the Desktop bean into the Programmer bean -->
+  <!-- Here, computer is interface -->
+    <property name="computer" ref="desktp"/>
+</bean>
+
+<!-- defined bean for laptop class -->
+    <bean id="lap" class="springproject.Laptop" ></bean>
+    <bean id="desktp" class="springproject.Desktop"/>
+
+</beans>
+
+
+
