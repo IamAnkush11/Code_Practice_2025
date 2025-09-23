@@ -1,1 +1,3 @@
 Hello, this is file2
+
+now changinf content of file2
